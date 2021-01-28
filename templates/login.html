@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles_login.css' %}">
+    <title>Log in / Register!!!</title>
 </head>
 <body>
-    
+    <div class="wrapper">
+        <div class="log">
+            <h1>Log In</h1>
+            <form action="/log" method="post">
+                {% csrf_token %}
+                <p>Email</p>
+                <input type="text" name="email_input">
+                <p>Password</p>
+                <input type="text" name="pw_input"><br>
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+        <div class="or">
+            <h3>-OR-</h3>
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="register">
+            <h1>Register</h1>
+            <form action="/register" method="post">
+                {% csrf_token %}
+                <p>First Name</p>
+                <input type="text" name="first_name_input">
+                <p>Last Name</p>
+                <input type="text" name="last_name_input">
+                <p>Email</p>
+                <input type="text" name="email_input">
+                <p>Birthdate</p>
+                <input type="date" name="bday_input">
+                <p>Password</p>
+                <input type="text" name="pw_input">
+                <p>Confirm Password</p>
+                <input type="text" name="confirm_input"><br>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
 </body>
-</html>

@@ -44,7 +44,5 @@ class Craft(models.Model):
     created_date = models.DateField()
     num = models.IntegerField()
     price = models.DecimalField(max_digits=4, decimal_places=2)
-    True_or_False = models.BooleanField()
-    mixed_number = models.FloatField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
