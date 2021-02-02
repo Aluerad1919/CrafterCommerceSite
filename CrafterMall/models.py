@@ -41,6 +41,8 @@ class Users(models.Model):
 class Craft(models.Model):
     item_title = models.CharField(max_length=45)
     description = models.TextField()
+    crafttype = models.CharField()
+    # descriptionTag tags to be searched by
     created_date = models.DateField()
     num = models.IntegerField()
     price = models.DecimalField(max_digits=4, decimal_places=2)
